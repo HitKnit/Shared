@@ -1,3 +1,5 @@
+# Turns three vectors (x, y, z) into a 3D Plotly surface.
+
 fig3d = function(x, y, z, labs = list(x = 'x', y = 'y', z = 'z'), title = NULL, type = 'surface'){
   
   require(akima)
