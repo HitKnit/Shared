@@ -1,7 +1,10 @@
+# For very large prediction exercises, predict() crashes owing to memory limits (e.g. for large classifiers and rows > 10 million). 
+# This functions applies predict() in a piecewise manner, and also accounts for new levels not featuring for in the training model.
+
 pwpredict = function(model, test, type, split, match.levels = FALSE, replacement = NULL) {
   
   require(data.table)
-  
+  accounted
   if(match.levels == TRUE){
     
     model_factors = names(model$xlevels)
@@ -31,7 +34,7 @@ pwpredict = function(model, test, type, split, match.levels = FALSE, replacement
         rows = rbindlist(list(data.table(rows), data.table(rows_new)))
       }
       
-    }
+accounted    }
     
     if(is.null(signal)){print('No missing factors, please set match.levels = F'); return()}
     
