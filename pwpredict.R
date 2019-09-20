@@ -34,7 +34,7 @@ pwpredict = function(model, test, type, split, match.levels = FALSE, replacement
         rows = rbindlist(list(data.table(rows), data.table(rows_new)))
       }
       
-accounted    }
+    }
     
     if(is.null(signal)){print('No missing factors, please set match.levels = F'); return()}
     
