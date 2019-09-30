@@ -3,7 +3,7 @@ quartile_eval = function(svec, AR, yield, principal, title = NULL){
   dt = data.table(svec, AR, yield, principal)
   sharpe_qtile = dt[, quantile(svec)]
   
-  dt[, qgroup := sapply(svec, function(x) sum(x >= sharpe_qtile))]
+  dt[, qgroup := sapply(svec, function(x) sum(x >= sharpe_qtile[-5]))]
 
   texts = c('Fourth', 'Third', 'Second', 'First')
   xr = dt[, range(AR)]
